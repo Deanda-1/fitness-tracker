@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 })
 
 app.get("/", (req, res) => {
-  res.send("hit home");
+  res.send("view chart");
 })
 
 app.listen(PORT, () => {
