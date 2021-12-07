@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const db = require('../models/workout.js');
+const db = require('../models');
 
-mongoose.connect('mongodb://localhost/workout', {
+mongoose.connect('mongodb://localhost/cardio', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
@@ -13,7 +13,7 @@ const workoutSeed = [
     exercises: [
       {
         type: 'resistance',
-        name: 'Bicep Curl',
+        name: 'Power sprints',
         duration: 20,
         weight: 100,
         reps: 10,
@@ -26,7 +26,7 @@ const workoutSeed = [
     exercises: [
       {
         type: 'resistance',
-        name: 'Lateral Pull',
+        name: 'Power climbing',
         duration: 20,
         weight: 300,
         reps: 10,
@@ -39,7 +39,7 @@ const workoutSeed = [
     exercises: [
       {
         type: 'resistance',
-        name: 'Push Press',
+        name: 'Paroashote sprints',
         duration: 25,
         weight: 185,
         reps: 8,
@@ -63,7 +63,7 @@ const workoutSeed = [
     exercises: [
       {
         type: 'resistance',
-        name: 'Bench Press',
+        name: 'Power Up hill running',
         duration: 20,
         weight: 285,
         reps: 10,
@@ -78,7 +78,7 @@ const workoutSeed = [
         type: 'resistance',
         name: 'Bench Press',
         duration: 20,
-        weight: 300,
+        weight: 150,
         reps: 10,
         sets: 4,
       },
@@ -91,7 +91,7 @@ const workoutSeed = [
         type: 'resistance',
         name: 'Quad Press',
         duration: 30,
-        weight: 300,
+        weight: 175,
         reps: 10,
         sets: 4,
       },
@@ -104,7 +104,7 @@ const workoutSeed = [
         type: 'resistance',
         name: 'Bench Press',
         duration: 20,
-        weight: 300,
+        weight: 125,
         reps: 10,
         sets: 4,
       },
@@ -117,21 +117,14 @@ const workoutSeed = [
         type: 'resistance',
         name: 'Military Press',
         duration: 20,
-        weight: 300,
-        reps: 10,
-        sets: 4,
-      },{
-        type: 'resistance',
-        name: 'Military Press',
-        duration: 20,
-        weight: 300,
+        weight: 170,
         reps: 10,
         sets: 4,
       },
     ],
   },
 ];
-console.log(db);
+
 db.Workout.deleteMany({})
   .then(() => db.Workout.collection.insertMany(workoutSeed))
   .then((data) => {

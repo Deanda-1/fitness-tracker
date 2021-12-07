@@ -14,12 +14,28 @@ function calculateTotalWeight(data) {
 
   return totals;
 }
+/*
+function calculateTotalWeight(data) {
+  const totals = [];
 
+  data.forEach((cardio) => {
+    const cardioTotal = cardio.exercises.reduce((total, { duration, distance }) => {
+      if (type === 'duration') {
+        return total + distance;
+      }
+      return total;
+    }, 0);
+
+    totals.push(cardioTotal);
+  });
+
+  return totals;  
+}*/
 function populateChart(data) {
   const durations = data.map(({ totalDuration }) => totalDuration);
   const pounds = calculateTotalWeight(data);
 
-  const line = document.querySelector('#canvas').getContext('2d');
+ const line = document.querySelector('#canvas').getContext('2d');
   const bar = document.querySelector('#canvas2').getContext('2d');
 
   const labels = data.map(({ day }) => {

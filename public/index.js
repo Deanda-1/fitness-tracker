@@ -11,3 +11,15 @@ async function init() {
   }
 }
 
+init();
+
+async function init() {
+  if (location.search.split("=")[1] === undefined) {
+    const cardio = await API.getLastWorkout();
+    if (cardio) {
+      location.search = "?id=" + cardio._id;
+    } else {
+      document.querySelector("#continue-btn").classList.add("d-none")
+    }
+  }
+}
